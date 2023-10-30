@@ -6,20 +6,34 @@ public class Ex13 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int qtNumeros, numero, contador = 0, numarr = 0;
+        int qtNumeros, numeroAnterior, contador = 1, numeroAtual = 0;
+        boolean crescente = true;
 
         System.out.println("Informe quantos numeros deseja inserir: ");
         qtNumeros = input.nextInt();
 
+        System.out.println("Introduza uma sequencia de numeros: ");
+        numeroAnterior = input.nextInt();
+
         while(contador < qtNumeros ){
+            //se o numero a seguir é maior que o numero anterior
             System.out.println("Introduza uma sequencia de numeros: ");
-            numero = input.nextInt();
+            numeroAtual = input.nextInt();
+
+            if(numeroAnterior>=numeroAtual){
+                crescente = false;
+            }
+
+            numeroAnterior = numeroAtual;
+
             contador++;
-            numarr = numero;
-        } 
-        System.out.println(numarr);
+        }
 
-
+        if(crescente){
+            System.out.println("Crescente");
+        } else {
+            System.out.println("Não é crescente");
+        }
 
       /*  do{
             System.out.println("Introduza uma sequencia de numeros: ");
