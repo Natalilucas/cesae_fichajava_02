@@ -11,9 +11,11 @@ public class Ex04 {
         System.out.println("Vamos ver se o número é primo: ");
         nPrimo = input.nextInt();
 
-        while(nPrimo%2 != 0){
+        /*while(nPrimo%2 != 0){
             if()
-        }
+        }*/
+
+            int _var1 = 1;
 
     }
 }
