@@ -18,6 +18,11 @@ public class Ex04 {
                 break; // Se encontrarmos um divisor, podemos sair do loop imediatamente.
             }
         }
+        /*while(nPrimo%2 != 0){
+            if()
+        }*/
+
+            int _var1 = 1;
 
         if (ePrimo && nPrimo > 1) {
             System.out.println("O número " + nPrimo + " é primo.");

@@ -12,7 +12,7 @@ public class Ex08 {
         //System.out.println("Adivinhe o número premiado: ");
         //numeroPedido = input.nextInt();
 
-        while(numeroPedido != -1 ){
+        /*while(numeroPedido != -1 ){
             System.out.println("Adivinhe o número premiado: ");
             numeroPedido = input.nextInt();
             soma = soma + numeroPedido;
@@ -22,5 +22,20 @@ public class Ex08 {
         media = (soma + 1) / (contador);
         System.out.println(media);
 
+         */
+
+        //Prova
+        System.out.println("Salario: ");
+        double salario = input.nextDouble();
+
+        double aumento;
+
+        if(salario > 1200){
+            aumento = salario * 0.10;
+        } else {
+            aumento = salario * 0.15;
+        }
+
+        System.out.println("Salario: " + aumento);
     }
 }
