@@ -7,7 +7,7 @@ public class Ex03 {
         Scanner input = new Scanner(System.in);
 
         int[] valores = new int[10];
-        int i, maior = 0;
+        int i, maior = valores[0];
 
         for (i = 0; i < valores.length; i++) {
             System.out.println("Insira 10 valores " + i + ":");

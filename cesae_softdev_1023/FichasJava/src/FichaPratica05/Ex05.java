@@ -6,7 +6,7 @@ public class Ex05 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int[] valores = new int[2];
+        int[] valores = new int[10];
         int i, media = 0, soma = 0;
 
         for(i = 0; i < valores.length; i++){

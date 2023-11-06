@@ -7,11 +7,13 @@ public class Ex07 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int [] valores = new int [4];
+        int [] valores = new int [10];
         int valorPar = valores[0];
-        int maior = 0;
+        int maior;
 
+        /*
         for (int i = 0; i < valores.length; i++) {
+
             System.out.println("Insira os valores");
             valores[i] = input.nextInt();
             if(valores[i] % 2 == 0){
@@ -22,7 +24,15 @@ public class Ex07 {
             }System.out.println(maior);
         } System.out.println(valorPar);
 
+*/
 
+        maior = valores[0];
+
+        for(int i = 0; i < 10; i++){
+            System.out.println("Insira um numero no vetor");
+            if(valores[0] %2==0){
+            }
+        }
 
     }
 }
