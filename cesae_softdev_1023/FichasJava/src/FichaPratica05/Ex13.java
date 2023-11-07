@@ -16,24 +16,15 @@ public class Ex13 {
             }
         }
 
-        for(int linhas = 0 ; linhas < matrix.length; linhas++){
-            for (int colunas = 0; colunas < matrix.length; colunas++){
-                soma += matrix[0][0];
-                soma1 += matrix[1][1];
-                soma2 += matrix[2][2];
-                soma3 += matrix[3][3];
-                System.out.println(" O resultado da soma0= " + soma + "soma1 = " + soma1 +  "soma2 = " + soma2 + "soma3 = " + soma3 );
-
-            }
-        }
 
         for(int linhas =0; linhas < matrix.length; linhas++){
             for(int colunas = 0; colunas < matrix.length; colunas++){
-                System.out.print(matrix[linhas][colunas]);
+                if(linhas == colunas)
+                    soma += matrix[linhas][colunas];
             }
-            System.out.println(" ");
-        }
 
+        }
+        System.out.println(soma);
 
     }
 }
