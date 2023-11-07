@@ -7,7 +7,7 @@ public class Ex13 {
         Scanner input = new Scanner(System.in);
 
         int [][] matrix = new int [4][4];
-        int soma = 0;
+        int soma = 0, soma1 = 0, soma2= 0, soma3 = 0;
 
         for(int linhas = 0; linhas < matrix.length; linhas++){
             for(int colunas = 0 ; colunas < matrix.length; colunas++){
@@ -18,8 +18,11 @@ public class Ex13 {
 
         for(int linhas = 0 ; linhas < matrix.length; linhas++){
             for (int colunas = 0; colunas < matrix.length; colunas++){
-                soma += matrix[linhas][colunas];
-                System.out.println(" O resultado da soma é " + soma);
+                soma += matrix[0][0];
+                soma1 += matrix[1][1];
+                soma2 += matrix[2][2];
+                soma3 += matrix[3][3];
+                System.out.println(" O resultado da soma0= " + soma + "soma1 = " + soma1 +  "soma2 = " + soma2 + "soma3 = " + soma3 );
 
             }
         }
