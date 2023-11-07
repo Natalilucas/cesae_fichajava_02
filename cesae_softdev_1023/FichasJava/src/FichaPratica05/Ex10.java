@@ -9,8 +9,8 @@ public class Ex10 {
         int [][] valores = new int[3][5];
         int count = 0, valorConf;
 
-        for(int i = 0; i < 3; i++){
-            for (int j = 0; j < 5; j++){
+        for(int i = 0; i < valores.length; i++){
+            for (int j = 0; j < valores.length; j++){
                 System.out.println("Insira os valores da matriz");
                 valores[i][j] = input.nextInt();
                 System.out.println(valores[i][j]);
@@ -20,8 +20,8 @@ public class Ex10 {
         System.out.println("Informe qual valor quer conferir");
         valorConf= input.nextInt();
 
-        for(int i = 0; i < 3; i++){
-            for (int j = 0; j < 5; j++)
+        for(int i = 0; i < valores.length; i++){
+            for (int j = 0; j < valores.length; j++)
                 if(valorConf == valores[i][j]){
                     count++;
                 }

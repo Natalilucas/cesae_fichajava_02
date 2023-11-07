@@ -12,7 +12,7 @@ public class Ex08 {
 
         for(i =0; i < 3; i++){
             for(j = 0; j < 3; j++){
-                System.out.println("Insira as colunas");
+                System.out.println("Insira na matriz [" + i + "][" + j+"]");
                 valores [i][j] = input.nextInt();
             }
         }
@@ -21,7 +21,7 @@ public class Ex08 {
 
         for(i =0; i < 3; i++){
             for(j = 0; j < 3; j++){
-                System.out.print(valores[i][j]);
+                System.out.print(valores[i][j] + "\t");
             }
             System.out.println(" ");
         }

@@ -9,8 +9,8 @@ public class Ex09 {
         int [][] valores = new int[2][3];
         int i, j, soma=0;
 
-        for(i =0; i < 5; i++){
-            for(j = 0; j < 5; j++){
+        for(i =0; i < valores.length; i++){
+            for(j = 0; j < valores[0].length; j++){
                 System.out.println("Insira os valores da matriz para somar");
                 valores [i][j] = input.nextInt();
                 soma += valores[i][j];
