@@ -2,6 +2,8 @@ package FichaPratica05;
 
 import java.util.Scanner;
 
+import static FichaPratica06.Ex05.*;
+
 public class Ex11 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -27,13 +29,14 @@ public class Ex11 {
 
         maior = valores[0][0];
 
-        for(i = 0; i < 3; i++){
+        /*for(i = 0; i < 3; i++){
             for(j = 0; j < 3; j++){
                 if(valores [i][j] > maior){
                     maior = valores[i][j];
                 }
             }
         } System.out.println("O maior valor é " + maior);
+*/
 
         menor = valores[0][0];
 
