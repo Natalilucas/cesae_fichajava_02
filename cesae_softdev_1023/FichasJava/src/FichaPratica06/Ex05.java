@@ -28,17 +28,27 @@ public class Ex05 {
         return menorNum;
     }
 
+    //Crescente está errada, voltar aqui
     public static boolean crescente(int [] vetor){
         int numAnterior = vetor[0];
+        boolean crescente = false;
 
         for(int i = 0; i < vetor.length; i++){
             if(vetor[i] < numAnterior){
+                crescente = true;
                 numAnterior = vetor[i];
+            } else {
+                crescente=false;
             }
         }
 
+        if(crescente){
+            System.out.println("Crescente");
+        } else {
+            System.out.println("Não é crescente");
+        }
 
-        return
+        return crescente;
     }
 
 

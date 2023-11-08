@@ -2,33 +2,36 @@ package FichaPratica05;
 
 import java.util.Scanner;
 
+import static FichaPratica06.Ex05.crescente;
+
 public class Ex06 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int [] valores = new int [10];
-        int i = 0, numAnterior = valores[0], contador;
+        int[] valores = new int[10];
+        int i = 0, numAnterior = valores[0];
         boolean crescente = false;
 
 
-        for (i = 0; i < valores.length; i++){
+        for (i = 0; i < valores.length; i++) {
             System.out.println("Informe um conjunto de valores: " + i);
             valores[i] = input.nextInt();
 
-            if (valores[i] > numAnterior){
+/*
+            if (valores[i] > numAnterior) {
                 numAnterior = valores[i];
                 crescente = true;
             } else {
-                crescente=false;
+                crescente = false;
             }
-
         }
 
-        if(crescente){
+        if (crescente) {
             System.out.println("Crescente");
         } else {
-            System.out.println("Não é crescente");
+            System.out.println("Não é crescente");*/
         }
 
+        crescente(valores);
     }
 }
