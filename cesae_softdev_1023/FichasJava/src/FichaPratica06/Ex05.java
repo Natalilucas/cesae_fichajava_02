@@ -30,15 +30,12 @@ public class Ex05 {
 
     //Crescente está errada, voltar aqui
     public static boolean crescente(int [] vetor){
-        int numAnterior = vetor[0];
+
         boolean crescente = false;
 
-        for(int i = 0; i < vetor.length; i++){
-            if(vetor[i] < numAnterior){
-                crescente = true;
-                numAnterior = vetor[i];
-            } else {
-                crescente=false;
+        for(int i = 1; i < vetor.length; i++){
+            if(vetor[i] < vetor[i -1]){
+                crescente = false;
             }
         }
 
