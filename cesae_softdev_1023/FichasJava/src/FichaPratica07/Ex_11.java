@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-/*public class Ex_11 {
+public class Ex_11 {
     public static void main(String[] args) throws FileNotFoundException {
 
         Scanner sc = new Scanner(new File("Ficheiros/exercicio_11.csv"));
@@ -30,7 +30,8 @@ import java.util.Scanner;
             System.out.println(matriz[3][i]);
             // for (int i = 0; i < vetor.length; i++) {}
         }
-    }*/
+    }
+}
 
    /* public static int contarLinhasFicheiro(String caminhoFicheiro) throws FileNotFoundException {
         File ficheiro = new File(caminhoFicheiro);
