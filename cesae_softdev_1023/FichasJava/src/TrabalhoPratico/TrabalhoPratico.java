@@ -146,7 +146,7 @@ public class TrabalhoPratico {
                                 "3 - Obter a informação do cliente\n" );
                         int opcao = input.nextInt();
                         switch (opcao){
-                            case 1://calcule as vendas e o valor total
+                            case 1:
                                 //2 - função das vendas totais
                                 valorVendas(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
                                 break;
@@ -158,6 +158,8 @@ public class TrabalhoPratico {
                                 //4 - Dado um idCliente, imprima todas as informações associadas a esse cliente (nome, contacto, email).
                                 pesquisarCliente();
                                 break;
+                            case 4:
+                                
 
                         }
 
