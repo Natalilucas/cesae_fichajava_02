@@ -160,8 +160,12 @@ public class TrabalhoPratico {
 
     public static void titulosJogos() throws FileNotFoundException {
         String[][] matriz = criarMatriz("FicheiroTrabPra/GameStart_V2.csv");
+        String jogosLista;
 
-        
+        for (int i = 0; i < matriz.length; i++) {
+            jogosLista = matriz[i][7];
+            System.out.println(jogosLista);
+        }
 
     }
 
@@ -259,7 +263,7 @@ public class TrabalhoPratico {
                         lugaresVago();
                         break;
                     case 3:
-                        //titulosJogos();
+                        titulosJogos();
                         break;
                     case 4:
                         break;
