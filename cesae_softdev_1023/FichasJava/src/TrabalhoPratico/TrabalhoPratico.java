@@ -105,9 +105,66 @@ public class TrabalhoPratico {
         for(int i = 0; i < matriz.length; i++){
             if(idClientePes == Integer.parseInt(matriz[i][1])){
                 System.out.println("Nome" + matriz[i][2] + "\nTelefone " +matriz[i][3] + "\nEmail"  + matriz[i][4]);
-            }
+            }/*else {
+                System.out.println("Id não encontrado na base de dados");
+                break;
+            }*/
         }
     }
+
+    public static void jogoCaro(String [][] matrizTotal) throws FileNotFoundException {
+        String[][] matriz = criarMatriz("FicheiroTrabPra/GameStart_V2.csv");
+
+        double maisCaro = 0, jogoPreco;
+        String nomeJogo = " ", nomeJogoCaro = " ", cliente = " ", compradorCaro =" ";
+
+        for (int i = 0; i < matriz.length; i++) {
+            jogoPreco = Double.parseDouble(matriz[i][8]);
+            nomeJogo = matriz[i][7];
+            //cliente = matriz[i][2];
+            
+            if( jogoPreco > maisCaro){
+                maisCaro = jogoPreco;
+                nomeJogoCaro = nomeJogo;
+                compradorCaro = cliente + matriz[i][2];
+            }
+        } System.out.println("O jogo mais caro é " + nomeJogoCaro  + "no valor de " + maisCaro + " e o comprador foi: " + compradorCaro);
+
+        //System.out.println(jogoCaro);
+    }
+
+    public static boolean triangular(int num){
+        int somatorio=0, contador=1;
+
+        while (somatorio<num){
+            somatorio+=contador;
+
+            contador++;
+
+            if(somatorio==num){
+                return true;
+            }
+        }return false;
+    }
+
+    public static int lugaresVago(){
+        int num = 0;
+
+        while (num<=121){
+           if(triangular(num) && num % 5== 0){
+               System.out.println(num);
+           } num++;
+        }
+        return num;
+    }
+
+    public static void titulosJogos() throws FileNotFoundException {
+        String[][] matriz = criarMatriz("FicheiroTrabPra/GameStart_V2.csv");
+
+        
+
+    }
+
 
 
 
@@ -124,9 +181,9 @@ public class TrabalhoPratico {
         String voltar = "N";
 
         System.out.println("Para acessar o nosso programa informe se é: \n" +
-                "1 - Administrador da Loja \n" +
-                "2 - Cliente" +
-                "3 -Para sair do menu");
+                "1 - Administrador da Loja\n" +
+                "2 - Cliente\n" +
+                "3 - Para sair do menu");
         escolha = input.nextInt();
 
 
@@ -143,7 +200,8 @@ public class TrabalhoPratico {
                         System.out.println("Menu do administrador: \n" +
                                  "1 - Calcule o total de vendas\n" +
                                 "2 - Calcule o lucro\n" +
-                                "3 - Obter a informação do cliente\n" );
+                                "3 - Obter a informação do cliente\n" +
+                                " 4 - Jogo mais caro ");
                         int opcao = input.nextInt();
                         switch (opcao){
                             case 1:
@@ -159,7 +217,8 @@ public class TrabalhoPratico {
                                 pesquisarCliente();
                                 break;
                             case 4:
-                                
+                                //5. Imprima qual o jogo mais caro e os clientes que o compraram
+                                jogoCaro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
 
                         }
 
@@ -173,6 +232,38 @@ public class TrabalhoPratico {
                 }while(digiteSenha != password);
                 break;
             case 2:
+                //menu-cliente
+                System.out.println("O que deseja fazer?\n " +
+                        "1 - Inserir cliente\n" +
+                        "2 - Procurar estacionamento\n" +
+                        "3 - Títulos de jogos\n" +
+                        "4 - Jogos por editora");
+                int opcao = input.nextInt();
+                switch (opcao){
+                    case 1:
+                        System.out.println("Insira seus dados para efetuarmos seu cadastro: ");
+                        String nome, email;
+                        int contato;
+
+                        System.out.println("Insira seu nome: ");
+                        nome = input.next();
+                        System.out.println("Insira seu contato telefonico: ");
+                        contato = input.nextInt();
+                        System.out.println("Insira seu e-mail: ");
+                        email = input.next();
+
+                        System.out.println("Cliente inserido com sucesso: " + nome + " | " + contato + " | "+ email);
+                        break;
+                    case 2:
+                        System.out.println("Os lugares vagos são: ");
+                        lugaresVago();
+                        break;
+                    case 3:
+                        //titulosJogos();
+                        break;
+                    case 4:
+                        break;
+                }
                 break;
             case 3:
                 break;
