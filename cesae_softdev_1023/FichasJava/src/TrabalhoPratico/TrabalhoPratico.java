@@ -11,7 +11,7 @@ public class TrabalhoPratico {
         Scanner sc = new Scanner(new File(caminho));
         int linha = 0;
 
-        while(sc.hasNextLine()){
+        while (sc.hasNextLine()) {
             sc.nextLine();
             linha++;
         }
@@ -66,12 +66,12 @@ public class TrabalhoPratico {
         }
     }
 
-    public static double valorVendas(String [][] matriz){
-        double valor = matriz.length, valorTotal=0;
+    public static double valorVendas(String[][] matriz) {
+        double valor = matriz.length, valorTotal = 0;
 
-        for (int linha = 0; linha < matriz.length; linha++){
-            valor = Double.parseDouble(matriz [linha][8]);
-            valorTotal+=valor;
+        for (int linha = 0; linha < matriz.length; linha++) {
+            valor = Double.parseDouble(matriz[linha][8]);
+            valorTotal += valor;
         }
         System.out.println("O total de vendas " + matriz.length);
         System.out.println("o valor total das vendas é:  " + valorTotal);
@@ -79,14 +79,14 @@ public class TrabalhoPratico {
         return valor;
     }
 
-    public static double totalLucro(String [][] matriz){
-        double valor = matriz.length, valorLucro=0, valorTotal = 0;
+    public static double totalLucro(String[][] matriz) {
+        double valor = matriz.length, valorLucro = 0, valorTotal = 0;
 
-        for (int linha = 0; linha < matriz.length; linha++){
-            valor = Double.parseDouble(matriz [linha][8]);
-            valorTotal+=valor;
+        for (int linha = 0; linha < matriz.length; linha++) {
+            valor = Double.parseDouble(matriz[linha][8]);
+            valorTotal += valor;
 
-            valorLucro = valorTotal*0.2;
+            valorLucro = valorTotal * 0.2;
         }
         System.out.println("O total das vendas " + valorTotal);
         System.out.println("o valor total do lucro é :  " + valorLucro);
@@ -102,58 +102,66 @@ public class TrabalhoPratico {
         System.out.println("Informe o Id do cliente para pesquisar");
         int idClientePes = input.nextInt();
 
-        for(int i = 0; i < matriz.length; i++){
-            if(idClientePes == Integer.parseInt(matriz[i][1])){
-                System.out.println("Nome" + matriz[i][2] + "\nTelefone " +matriz[i][3] + "\nEmail"  + matriz[i][4]);
-            }/*else {
-                System.out.println("Id não encontrado na base de dados");
+        for (int i = 0; i < matriz.length; i++) {
+            if (idClientePes == Integer.parseInt(matriz[i][1])) {
+                System.out.println("Nome" + matriz[i][2] + "\nTelefone " + matriz[i][3] + "\nEmail" + matriz[i][4]);
                 break;
-            }*/
+            }
         }
     }
 
-    public static void jogoCaro(String [][] matrizTotal) throws FileNotFoundException {
+    public static void jogoCaro(String[][] matrizTotal) throws FileNotFoundException {
         String[][] matriz = criarMatriz("FicheiroTrabPra/GameStart_V2.csv");
 
         double maisCaro = 0, jogoPreco;
-        String nomeJogo = " ", nomeJogoCaro = " ", cliente = " ", compradorCaro =" ";
-
+        String nomeJogo = " ", nomeJogoCaro = " ";
+        int contador = 0;
         for (int i = 0; i < matriz.length; i++) {
             jogoPreco = Double.parseDouble(matriz[i][8]);
             nomeJogo = matriz[i][7];
-            //cliente = matriz[i][2];
-            
-            if( jogoPreco > maisCaro){
+            if (jogoPreco > maisCaro) {
                 maisCaro = jogoPreco;
                 nomeJogoCaro = nomeJogo;
-                compradorCaro = cliente + matriz[i][2];
+                contador++;
             }
-        } System.out.println("O jogo mais caro é " + nomeJogoCaro  + "no valor de " + maisCaro + " e o comprador foi: " + compradorCaro);
+        }
+        System.out.println("O jogo mais caro é " + nomeJogoCaro + " no valor de: " + maisCaro);
 
-        //System.out.println(jogoCaro);
+        /**
+         * Encontra o jogador mais caro de acordo com o resultado acima
+         */
+        for (int j = 0; j < matriz.length; j++) {
+            if (matriz[j][7].equals(nomeJogoCaro)) {
+                System.out.println(" Comprador(es): " + matriz[j][2]);
+            }
+
+        }
+
     }
 
-    public static boolean triangular(int num){
-        int somatorio=0, contador=1;
+    public static boolean triangular(int num) {
+        int somatorio = 0, contador = 1;
 
-        while (somatorio<num){
-            somatorio+=contador;
+        while (somatorio < num) {
+            somatorio += contador;
 
             contador++;
 
-            if(somatorio==num){
+            if (somatorio == num) {
                 return true;
             }
-        }return false;
+        }
+        return false;
     }
 
-    public static int lugaresVago(){
+    public static int lugaresVago() {
         int num = 0;
 
-        while (num<=121){
-           if(triangular(num) && num % 5== 0){
-               System.out.println(num);
-           } num++;
+        while (num <= 121) {
+            if (triangular(num) && num % 5 == 0) {
+                System.out.println(num);
+            }
+            num++;
         }
         return num;
     }
@@ -161,15 +169,19 @@ public class TrabalhoPratico {
     public static void titulosJogos() throws FileNotFoundException {
         String[][] matriz = criarMatriz("FicheiroTrabPra/GameStart_V2.csv");
         String jogosLista;
+        boolean nRepete = false;
 
+        int contador = 0;
+
+        // Percorrer o array e imprimir na tela
         for (int i = 0; i < matriz.length; i++) {
             jogosLista = matriz[i][7];
             System.out.println(jogosLista);
+            contador++;
+            // não consegui fazer com que os nomes não s repetissem =(
         }
 
     }
-
-
 
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -194,47 +206,51 @@ public class TrabalhoPratico {
         //natali criar case pra sair!!
         switch (escolha) {
             case 1:
+                System.out.println("Se é administrador, digite sua senha: ");
+                digiteSenha = Integer.parseInt(input.next());
                 //Ciclo o qual irá pedir a senha do utilizador, caso digite a senha correta, deve continuar a pedir a senha, ou dar a opção de sair do menu.
-                do{
-                    System.out.println("Se é administrador, digite sua senha: ");
+                while (digiteSenha != password) {
+                    System.out.println("A senha não está correta, insira novamente ou digite 3 para encerrar: ");
                     digiteSenha = Integer.parseInt(input.next());
-                    if(digiteSenha == password){
-                        System.out.println("Bem Vindo ADMINISTRADOR!!\n");
-                        lerFicheiro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
-                        System.out.println("Menu do administrador: \n" +
-                                 "1 - Calcule o total de vendas\n" +
-                                "2 - Calcule o lucro\n" +
-                                "3 - Obter a informação do cliente\n" +
-                                " 4 - Jogo mais caro ");
-                        int opcao = input.nextInt();
-                        switch (opcao){
-                            case 1:
-                                //2 - função das vendas totais
-                                valorVendas(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
-                                break;
-                            case 2:
-                                //3-Sabendo o valor em cada jogo, calcule o total de lucro.
-                                totalLucro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
-                                break;
-                            case 3:
-                                //4 - Dado um idCliente, imprima todas as informações associadas a esse cliente (nome, contacto, email).
-                                pesquisarCliente();
-                                break;
-                            case 4:
-                                //5. Imprima qual o jogo mais caro e os clientes que o compraram
-                                jogoCaro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
-
-                        }
-
-                    } /*else if (digiteSenha == 3) {
-
-                    }*/ else {
-                        System.out.println("A senha está incorreta, digite novamente, ou digite 3 para sair do menu! ");
-                        digiteSenha = Integer.parseInt(input.next());
+                    if(digiteSenha == 3){
+                        break;
                     }
+                }
+                //caso a senha esteja correta, passa para este if.
+                if (digiteSenha == password) {
+                    System.out.println("Bem Vindo ADMINISTRADOR!!\n");
+                    lerFicheiro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
+                    System.out.println("Menu do administrador: \n" +
+                            "1 - Calcule o total de vendas\n" +
+                            "2 - Calcule o lucro\n" +
+                            "3 - Obter a informação do cliente\n" +
+                            " 4 - Jogo mais caro ");
+                    int opcao = input.nextInt();
+                    switch (opcao) {
+                        case 1:
+                            //2 - função das vendas totais
+                            valorVendas(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
+                            break;
+                        case 2:
+                            //3-Sabendo o valor em cada jogo, calcule o total de lucro.
+                            totalLucro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
+                            break;
+                        case 3:
+                            //4 - Dado um idCliente, imprima todas as informações associadas a esse cliente (nome, contacto, email).
+                            pesquisarCliente();
+                            break;
+                        case 4:
+                            //5. Imprima qual o jogo mais caro e os clientes que o compraram
+                            jogoCaro(criarMatriz("FicheiroTrabPra/GameStart_V2.csv"));
 
-                }while(digiteSenha != password);
+                    }
+                }
+                if (digiteSenha == 3) {
+                    System.out.println("Você inseriu 3, o programa será encerrado.");
+                    break;
+                }
                 break;
+
             case 2:
                 //menu-cliente
                 System.out.println("O que deseja fazer?\n " +
@@ -243,20 +259,22 @@ public class TrabalhoPratico {
                         "3 - Títulos de jogos\n" +
                         "4 - Jogos por editora");
                 int opcao = input.nextInt();
-                switch (opcao){
+                switch (opcao) {
                     case 1:
-                        System.out.println("Insira seus dados para efetuarmos seu cadastro: ");
-                        String nome, email;
+                        System.out.println("Insira seus dados para efetuarmos seu cadastro!! ");
+                        String nomeCliente, sobrenome, email;
                         int contato;
 
-                        System.out.println("Insira seu nome: ");
-                        nome = input.next();
-                        System.out.println("Insira seu contato telefonico: ");
+                        System.out.println("Insira o nome e sobrenome: ");
+                        nomeCliente= input.next();
+                        sobrenome = input.next();
+
+                        System.out.println("Insira o contato telefonico: ");
                         contato = input.nextInt();
-                        System.out.println("Insira seu e-mail: ");
+                        System.out.println("Insira o e-mail: ");
                         email = input.next();
 
-                        System.out.println("Cliente inserido com sucesso: " + nome + " | " + contato + " | "+ email);
+                        System.out.println("Cliente inserido com sucesso: " + nomeCliente + " " + sobrenome + " | " + contato + " | " + email);
                         break;
                     case 2:
                         System.out.println("Os lugares vagos são: ");
@@ -272,7 +290,5 @@ public class TrabalhoPratico {
             case 3:
                 break;
         }
-
-
-        }
     }
+}
